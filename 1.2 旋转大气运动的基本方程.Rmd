@@ -1,0 +1,139 @@
+# 1.2 旋转大气运动的基本方程
+
+## 专业名词
+
+惯性坐标系：上帝视角
+
+旋转坐标系：人类视角，随地球一块转动
+
+## 定律
+
+### 牛顿第二定律
+
+$$
+(\frac{d V_a}{d t})_{a}=\vec{g}_{m} -\frac{1}{\rho}\nabla p_{a} + \vec{F}_{a}
+$$
+
+- $\vec{g}_{m}$：重力
+
+- $-\frac{1}{\rho}\nabla p_{a}$：气压梯度力
+
+- $\vec{F}_{a}$：摩擦力，$\vec{F}_{a} \equiv \gamma \nabla^{2} \vec{V}_{a}+\frac{\gamma}{3} \nabla\left(\nabla \cdot \vec{V}_{a}\right)$
+
+### 质量守恒定律
+
+$$
+\left(\frac{\partial \rho}{\partial t}\right)_{a}+(\nabla \cdot \rho \vec{V}_a)_{a}=0
+$$
+
+- 拉格朗日观点：以移动的体积元为研究对象
+
+$$
+(\frac{d \rho}{\partial t})_{a}+\rho \nabla \cdot  \vec{V}_{a}=0
+$$
+
+- 欧拉观点：以固定空间为研究对象
+
+$$
+\left(\frac{\partial \rho}{\partial t}\right)_{a}+(\nabla \cdot \rho \vec{V}_a)_{a}=0
+$$
+
+`拉格朗日观点`和`欧拉观点`是同一事物的两种不同描述。证明：
+$$
+\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \vec{V}) =0 \\ 
+
+(\frac{\partial \rho}{\partial t} + \vec{V} \nabla  \cdot \rho) + \rho \nabla\cdot\vec{V} =0 \\
+
+\frac{d \rho}{\partial t} +\rho \nabla \cdot  \vec{V}=0
+$$
+其中，$\nabla\cdot$：是求梯度的符号
+
+> 详细证明过程见 葛朝霞, 2013, 章节4.7, P103
+
+### 理想气体定律
+
+$$
+p=\rho R T \\
+p \alpha =R T
+$$
+
+$R$：为比气体常数（$J · g^{-1}K^{-1}$），$R=R^*/M$。$R^*$为摩尔气体常数，$R^*=8.314 J · mol ^{-1}K^{-1}$；$M$的气体相对分子质量($g  ·mol^{-1}$)；$\alpha$为比容，单位质量气体具有的体积。对于干空气，$Rd = R^* / M_d = 8.314 / 28.97 = 0.287\;(J ·g^{-1}K^{-1})$
+$$
+\alpha dp+pd\alpha=RdT
+$$
+
+### 热力学第一定律
+
+> 热力学第一定律：对系统施加的热量等于系统的内能变化和对系统对外做功之和。
+
+对式6，两边同时求微分，可得：
+$$
+dQ = C_v dT + p d\alpha \\
+\dot{Q} = C_{v} \frac{d T}{d t} + p \frac{d \alpha}{d t}
+$$
+
+> 距离或者体积$\alpha$不变，则不存在做功，因此上式不包含 $\alpha dp$。
+
+#### 定容与定压比热容
+
+1. 定容($d \alpha = 0$)，热量全部转化为内能，$dQ = C_v dT$；
+
+2. 定压($d p = 0$)，一部分能量对外做功。此时：
+   $$
+   \begin{align}
+      dQ &= C_v dT + p d\alpha \\
+         &= C_v dT + RdT - \alpha dp \notag, (dp=0) \\
+         &= C_v dT + RdT             \notag \\
+         &= C_p dT             \notag
+   \end{align}
+   $$
+
+3. 
+
+因此$C_p = C_v + R$。
+
+其中，$C_{v}$、$C_p$分为定容、定压比热容，对于干空气，$C_{v}=0.716 J ·g^{-1} K^{-1}$、$C_p=1.005 J ·g^{-1} K^{-1}$。
+
+
+
+#### 干空气
+
+**在dp不为0情况下**，将$\alpha=\frac{RT}{p}$带入：
+$$
+\begin{align}
+   dQ &= C_v dT + p d\alpha \\
+      &= C_v dT + RdT - \alpha dp   \notag \\
+      &= C_p dT - \alpha dp         \notag \\
+      &= C_p dT - \frac{RT}{p}dp    \notag
+\end{align}
+$$
+
+
+#### 湿空气
+
+与干空气相比，湿空气多了凝结潜热。
+
+
+> 1. 气化潜热：单位质量的液体，气化所需要的热浪；
+> 2. 凝结潜热: 单位质量的气体，凝结所释放的热量。
+> 
+> 气化与凝结互为反过程。
+
+
+<!-- 湿空气达到饱和后，有部分水汽会发生凝结。 -->
+
+$$
+\lambda =2499.5-2.39T, \;(J·g^{-1})
+$$
+
+<span style="color:red">why</span>
+
+$$
+\begin{align}
+   dQ + \lambda d{q_s} &= C_p dT - \frac{RT}{p}dp \\
+     &= C_v dT + RdT - \alpha dp   \notag \\
+     &= C_p dT - \alpha dp         \notag \\
+     &= C_p dT - \frac{RT}{p}dp    \notag
+\end{align}
+$$
+
